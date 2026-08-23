@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Paleta Doces & Nós */
+  --color-brand-sage: #708465;
+  --color-brand-marrom: #271e05;
+  --color-brand-cream: #f6f6ed;
+  --color-brand-gold: #c9a227;
+
+  /* Neutros de apoio (quentes, derivados do marrom) */
+  --color-ink: #271e05;
+  --color-ink-muted: #77715c;
+  --color-line: #e2ded0;
+  --color-surface: #fdfdf9;
+
+  /* Tipografia */
+  --font-display: var(--font-cormorant), Georgia, serif;
+  --font-accent: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-jost), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+body {
+  background: var(--color-brand-cream);
+  color: var(--color-ink);
+}
+
+/* Rótulos de formulário e tags — caixa alta com letter-spacing largo */
+.label {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
