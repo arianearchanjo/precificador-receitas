@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Precificador de Receitas — Doces & Nós
 
-## Getting Started
+Aplicativo web de uso interno para precificação de receitas de confeitaria: cadastro de ingredientes, montagem de receitas com cálculo automático de custo e preço de venda sugerido.
 
-First, run the development server:
+## Funcionalidades
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Painel** (`/`) — resumo geral: receitas cadastradas, ticket médio, lucro médio por lote, receitas em destaque e ações rápidas.
+- **Receitas** (`/receitas`) — lista em cards com busca por nome e paginação; criação, edição, favoritos e exclusão.
+- **Visualização da receita** (`/receitas/[id]`) — preço sugerido, custos detalhados, composição do custo (ingredientes / mão de obra / custos fixos) e parâmetros usados.
+- **Editor de receita** (`/receitas/nova` e `/receitas/[id]/editar`) — seções guiadas, busca de ingredientes, presets de margem (20/30/50%), barra fixa mobile com preço ao vivo.
+- **Ingredientes** (`/ingredientes`) — biblioteca com busca e paginação; custo unitário derivado do preço pago ÷ quantidade comprada.
+
+## Fórmula de precificação
+
+```
+custo/un = (ingredientes + mão de obra + embalagem + gás/energia + adicionais) ÷ rendimento
+preço    = custo/un ÷ (1 − margem% − taxa do cartão%)
+lucro    = preço − custo/un − taxa   (por unidade × rendimento = lucro do lote)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+A margem e a taxa incidem sobre o **preço final**. Validações automáticas: rendimento > 0, valores ≥ 0 e margem + taxa < 100%. Regra centralizada em `src/lib/pricing.ts`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [Next.js](https://nextjs.org) 16 (App Router, Server Actions) + React 19
+- Tailwind CSS v4 · jotai · radix-ui
+- Prisma 7 (MariaDB) · better-auth
+- Biome (lint/format) · Vitest (testes)
 
-## Learn More
+## Como rodar
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm install
+npm run db:generate        # gera o cliente Prisma
+npm run db:migrate         # aplica migrações (dev)
+npm run dev                # servidor de desenvolvimento
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+O banco é configurado via `.env` (ver `.env.example` se disponível). Para popular dados de exemplo: `npm run db:seed`. Produção: `npm run build && npm start` (migrações com `npm run db:deploy`).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Scripts úteis
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Comando              | Descrição                        |
+| -------------------- | -------------------------------- |
+| `npm run dev`        | Servidor de desenvolvimento      |
+| `npm run build`      | Build de produção                |
+| `npm run lint`       | Lint e checagem de formatação    |
+| `npm run lint:fix`   | Corrige lint/formatação          |
+| `npm test`           | Roda os testes (Vitest)          |
+| `npm run db:studio`  | Abre o Prisma Studio             |
