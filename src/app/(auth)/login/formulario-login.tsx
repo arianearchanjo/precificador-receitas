@@ -27,8 +27,20 @@ export function FormularioLogin() {
   }
 
   return (
-    <div className="w-full max-w-sm rounded-2xl border border-line bg-surface p-7 shadow-md shadow-brand-marrom/5">
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+    <div className="w-full max-w-sm">
+      <div className="mb-6 flex flex-col gap-1.5 text-left sm:text-center">
+        <h1 className="font-display text-3xl leading-tight font-medium text-brand-marrom sm:text-4xl">
+          Bom te ver por aqui
+        </h1>
+        <p className="text-sm leading-relaxed text-ink-muted">
+          Entre para acessar suas receitas e preços.
+        </p>
+      </div>
+
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col gap-4 sm:gap-5 sm:rounded-2xl sm:border sm:border-line sm:bg-surface sm:p-7 sm:shadow-md sm:shadow-brand-marrom/5"
+      >
         <Field label="E-mail">
           <TextInput
             type="email"
@@ -36,6 +48,7 @@ export function FormularioLogin() {
             onChange={(e) => setEmail(e.target.value)}
             required
             autoComplete="email"
+            inputMode="email"
             placeholder="voce@email.com"
           />
         </Field>
@@ -58,7 +71,7 @@ export function FormularioLogin() {
             {error}
           </p>
         ) : null}
-        <Button type="submit" disabled={loading} className="mt-1 w-full py-3">
+        <Button type="submit" disabled={loading} className="mt-2 w-full py-3.5 sm:mt-1 sm:py-3">
           {loading ? <Spinner /> : null}
           {loading ? "Entrando..." : "Entrar"}
         </Button>

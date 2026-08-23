@@ -24,7 +24,7 @@ A margem e a taxa incidem sobre o **preço final**. Validações automáticas: r
 
 - [Next.js](https://nextjs.org) 16 (App Router, Server Actions) + React 19
 - Tailwind CSS v4 · jotai · radix-ui
-- Prisma 7 (MariaDB) · better-auth
+- Prisma 7 (PostgreSQL/Neon, driver adapter `@prisma/adapter-pg`) · better-auth
 - Biome (lint/format) · Vitest (testes)
 
 ## Como rodar
@@ -36,7 +36,18 @@ npm run db:migrate         # aplica migrações (dev)
 npm run dev                # servidor de desenvolvimento
 ```
 
-O banco é configurado via `.env` (ver `.env.example` se disponível). Para popular dados de exemplo: `npm run db:seed`. Produção: `npm run build && npm start` (migrações com `npm run db:deploy`).
+O banco é configurado via `.env` (modelo em `.env.example`). Produção: `npm run build && npm start` (migrações com `npm run db:deploy`).
+
+## Deploy na Vercel + Neon
+
+1. Crie um projeto no [Neon](https://neon.tech) e copie as duas connection strings do painel:
+   - **Pooled** (contém `-pooler` no host) → usada pela aplicação em runtime.
+   - **Direct** (sem `-pooler`) → usada pelas migrations.
+2. No `.env` local, preencha `DATABASE_URL` (pooled) e `DIRECT_URL` (direct).
+3. Aplique o schema no Neon: `npm run db:deploy`.
+4. Faça o deploy na Vercel e cadastre as variáveis de ambiente do `.env` (`DATABASE_URL`, `BETTER_AUTH_SECRET`, `BETTER_AUTH_URL`, `ADMIN_EMAIL`, `ADMIN_PASSWORD`). `DIRECT_URL` só é necessária se rodar migrations pela Vercel — o normal é aplicá-las antes, no passo 3.
+
+O `postinstall` já roda `prisma generate` durante o build da Vercel.
 
 ## Scripts úteis
 

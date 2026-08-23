@@ -33,10 +33,30 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
         </div>
       </aside>
 
+      {/* Detalhes decorativos — eco do painel verde, apenas no mobile */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-80 overflow-hidden lg:hidden"
+      >
+        <div className="absolute -top-24 -left-24 h-60 w-60 rounded-full border border-brand-sage/20" />
+        <div className="absolute -top-16 right-8 h-40 w-40 rounded-full border border-brand-gold/25" />
+        <div className="absolute -right-16 bottom-0 h-44 w-44 rounded-full border border-brand-sage/10" />
+      </div>
+
       {/* Formulário */}
-      <main className="flex flex-col items-center justify-center px-4 py-12 sm:px-8">
-        <div className="mb-8 flex flex-col items-center gap-3 text-center lg:hidden">
-          <Image src={logoFundoClaro} alt="Logotipo Doces & Nós" priority className="h-24 w-auto" />
+      <main className="relative flex flex-col items-center justify-center px-6 pt-20 pb-14 sm:px-8">
+        <div className="mb-9 flex flex-col items-center gap-4 text-center lg:hidden">
+          <Image
+            src={logoFundoClaro}
+            alt="Logotipo Doces & Nós"
+            priority
+            className="h-28 w-auto drop-shadow-sm sm:h-32"
+          />
+          <p className="max-w-xs font-display text-[1.7rem] leading-snug font-medium text-brand-marrom">
+            Cada receita com o <span className="font-accent italic text-brand-sage">seu</span> preço
+            justo.
+          </p>
+          <p className="label">Precificador de receitas</p>
         </div>
         {children}
       </main>

@@ -69,7 +69,7 @@ export default async function VisualizarReceitaPage(props: PageProps<"/receitas/
 
   const itensDetalhados = receita.ingredientes
     .map((item) => ({
-      id: item.id,
+      id: item.ingredienteId,
       nome: item.ingrediente.nome,
       unidade: item.ingrediente.unidade,
       quantidade: Number(item.quantidade),
@@ -236,11 +236,11 @@ export default async function VisualizarReceitaPage(props: PageProps<"/receitas/
             <dl className="flex flex-col gap-2 text-sm">
               <div className="flex justify-between gap-2">
                 <dt className="text-ink-muted">Margem de lucro</dt>
-                <dd className="font-mono text-ink">{receita.margemLucro}%</dd>
+                <dd className="font-mono text-ink">{Number(receita.margemLucro)}%</dd>
               </div>
               <div className="flex justify-between gap-2">
                 <dt className="text-ink-muted">Taxa de cartão</dt>
-                <dd className="font-mono text-ink">{receita.taxaCartao}%</dd>
+                <dd className="font-mono text-ink">{Number(receita.taxaCartao)}%</dd>
               </div>
               <div className="flex justify-between gap-2">
                 <dt className="text-ink-muted">Mão de obra</dt>

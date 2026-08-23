@@ -456,6 +456,10 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
           args: Prisma.UserCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
+        createManyAndReturn: {
+          args: Prisma.UserCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPayload>[]
+        }
         delete: {
           args: Prisma.UserDeleteArgs<ExtArgs>
           result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPayload>
@@ -471,6 +475,10 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         updateMany: {
           args: Prisma.UserUpdateManyArgs<ExtArgs>
           result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.UserUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPayload>[]
         }
         upsert: {
           args: Prisma.UserUpsertArgs<ExtArgs>
@@ -522,6 +530,10 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
           args: Prisma.AccountCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
+        createManyAndReturn: {
+          args: Prisma.AccountCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccountPayload>[]
+        }
         delete: {
           args: Prisma.AccountDeleteArgs<ExtArgs>
           result: runtime.Types.Utils.PayloadToResult<Prisma.$AccountPayload>
@@ -537,6 +549,10 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         updateMany: {
           args: Prisma.AccountUpdateManyArgs<ExtArgs>
           result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AccountUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccountPayload>[]
         }
         upsert: {
           args: Prisma.AccountUpsertArgs<ExtArgs>
@@ -588,6 +604,10 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
           args: Prisma.SessionCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
+        createManyAndReturn: {
+          args: Prisma.SessionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SessionPayload>[]
+        }
         delete: {
           args: Prisma.SessionDeleteArgs<ExtArgs>
           result: runtime.Types.Utils.PayloadToResult<Prisma.$SessionPayload>
@@ -603,6 +623,10 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         updateMany: {
           args: Prisma.SessionUpdateManyArgs<ExtArgs>
           result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SessionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SessionPayload>[]
         }
         upsert: {
           args: Prisma.SessionUpsertArgs<ExtArgs>
@@ -654,6 +678,10 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
           args: Prisma.VerificationCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
+        createManyAndReturn: {
+          args: Prisma.VerificationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VerificationPayload>[]
+        }
         delete: {
           args: Prisma.VerificationDeleteArgs<ExtArgs>
           result: runtime.Types.Utils.PayloadToResult<Prisma.$VerificationPayload>
@@ -669,6 +697,10 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         updateMany: {
           args: Prisma.VerificationUpdateManyArgs<ExtArgs>
           result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.VerificationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VerificationPayload>[]
         }
         upsert: {
           args: Prisma.VerificationUpsertArgs<ExtArgs>
@@ -720,6 +752,10 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
           args: Prisma.ConfiguracaoConfeitariaCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
+        createManyAndReturn: {
+          args: Prisma.ConfiguracaoConfeitariaCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConfiguracaoConfeitariaPayload>[]
+        }
         delete: {
           args: Prisma.ConfiguracaoConfeitariaDeleteArgs<ExtArgs>
           result: runtime.Types.Utils.PayloadToResult<Prisma.$ConfiguracaoConfeitariaPayload>
@@ -735,6 +771,10 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         updateMany: {
           args: Prisma.ConfiguracaoConfeitariaUpdateManyArgs<ExtArgs>
           result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ConfiguracaoConfeitariaUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConfiguracaoConfeitariaPayload>[]
         }
         upsert: {
           args: Prisma.ConfiguracaoConfeitariaUpsertArgs<ExtArgs>
@@ -786,6 +826,10 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
           args: Prisma.IngredienteCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
+        createManyAndReturn: {
+          args: Prisma.IngredienteCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IngredientePayload>[]
+        }
         delete: {
           args: Prisma.IngredienteDeleteArgs<ExtArgs>
           result: runtime.Types.Utils.PayloadToResult<Prisma.$IngredientePayload>
@@ -801,6 +845,10 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         updateMany: {
           args: Prisma.IngredienteUpdateManyArgs<ExtArgs>
           result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.IngredienteUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IngredientePayload>[]
         }
         upsert: {
           args: Prisma.IngredienteUpsertArgs<ExtArgs>
@@ -852,6 +900,10 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
           args: Prisma.ReceitaCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
+        createManyAndReturn: {
+          args: Prisma.ReceitaCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReceitaPayload>[]
+        }
         delete: {
           args: Prisma.ReceitaDeleteArgs<ExtArgs>
           result: runtime.Types.Utils.PayloadToResult<Prisma.$ReceitaPayload>
@@ -867,6 +919,10 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         updateMany: {
           args: Prisma.ReceitaUpdateManyArgs<ExtArgs>
           result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ReceitaUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReceitaPayload>[]
         }
         upsert: {
           args: Prisma.ReceitaUpsertArgs<ExtArgs>
@@ -918,6 +974,10 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
           args: Prisma.ReceitaIngredienteCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
+        createManyAndReturn: {
+          args: Prisma.ReceitaIngredienteCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReceitaIngredientePayload>[]
+        }
         delete: {
           args: Prisma.ReceitaIngredienteDeleteArgs<ExtArgs>
           result: runtime.Types.Utils.PayloadToResult<Prisma.$ReceitaIngredientePayload>
@@ -933,6 +993,10 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         updateMany: {
           args: Prisma.ReceitaIngredienteUpdateManyArgs<ExtArgs>
           result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ReceitaIngredienteUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReceitaIngredientePayload>[]
         }
         upsert: {
           args: Prisma.ReceitaIngredienteUpsertArgs<ExtArgs>
@@ -1108,90 +1172,20 @@ export const SortOrder = {
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
+export const QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+} as const
+
+export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
 export const NullsOrder = {
   first: 'first',
   last: 'last'
 } as const
 
 export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
-
-
-export const UserOrderByRelevanceFieldEnum = {
-  id: 'id',
-  name: 'name',
-  email: 'email',
-  image: 'image'
-} as const
-
-export type UserOrderByRelevanceFieldEnum = (typeof UserOrderByRelevanceFieldEnum)[keyof typeof UserOrderByRelevanceFieldEnum]
-
-
-export const AccountOrderByRelevanceFieldEnum = {
-  id: 'id',
-  userId: 'userId',
-  accountId: 'accountId',
-  providerId: 'providerId',
-  issuer: 'issuer',
-  accessToken: 'accessToken',
-  refreshToken: 'refreshToken',
-  idToken: 'idToken',
-  scope: 'scope',
-  password: 'password'
-} as const
-
-export type AccountOrderByRelevanceFieldEnum = (typeof AccountOrderByRelevanceFieldEnum)[keyof typeof AccountOrderByRelevanceFieldEnum]
-
-
-export const SessionOrderByRelevanceFieldEnum = {
-  id: 'id',
-  userId: 'userId',
-  token: 'token',
-  ipAddress: 'ipAddress',
-  userAgent: 'userAgent'
-} as const
-
-export type SessionOrderByRelevanceFieldEnum = (typeof SessionOrderByRelevanceFieldEnum)[keyof typeof SessionOrderByRelevanceFieldEnum]
-
-
-export const VerificationOrderByRelevanceFieldEnum = {
-  id: 'id',
-  identifier: 'identifier',
-  value: 'value'
-} as const
-
-export type VerificationOrderByRelevanceFieldEnum = (typeof VerificationOrderByRelevanceFieldEnum)[keyof typeof VerificationOrderByRelevanceFieldEnum]
-
-
-export const ConfiguracaoConfeitariaOrderByRelevanceFieldEnum = {
-  nome: 'nome',
-  telefone: 'telefone'
-} as const
-
-export type ConfiguracaoConfeitariaOrderByRelevanceFieldEnum = (typeof ConfiguracaoConfeitariaOrderByRelevanceFieldEnum)[keyof typeof ConfiguracaoConfeitariaOrderByRelevanceFieldEnum]
-
-
-export const IngredienteOrderByRelevanceFieldEnum = {
-  id: 'id',
-  nome: 'nome'
-} as const
-
-export type IngredienteOrderByRelevanceFieldEnum = (typeof IngredienteOrderByRelevanceFieldEnum)[keyof typeof IngredienteOrderByRelevanceFieldEnum]
-
-
-export const ReceitaOrderByRelevanceFieldEnum = {
-  id: 'id',
-  nome: 'nome'
-} as const
-
-export type ReceitaOrderByRelevanceFieldEnum = (typeof ReceitaOrderByRelevanceFieldEnum)[keyof typeof ReceitaOrderByRelevanceFieldEnum]
-
-
-export const ReceitaIngredienteOrderByRelevanceFieldEnum = {
-  receitaId: 'receitaId',
-  ingredienteId: 'ingredienteId'
-} as const
-
-export type ReceitaIngredienteOrderByRelevanceFieldEnum = (typeof ReceitaIngredienteOrderByRelevanceFieldEnum)[keyof typeof ReceitaIngredienteOrderByRelevanceFieldEnum]
 
 
 
@@ -1204,6 +1198,13 @@ export type ReceitaIngredienteOrderByRelevanceFieldEnum = (typeof ReceitaIngredi
  * Reference to a field of type 'String'
  */
 export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
+    
+
+
+/**
+ * Reference to a field of type 'String[]'
+ */
+export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
     
 
 
@@ -1222,9 +1223,23 @@ export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel
 
 
 /**
+ * Reference to a field of type 'DateTime[]'
+ */
+export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+/**
  * Reference to a field of type 'Int'
  */
 export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+/**
+ * Reference to a field of type 'Int[]'
+ */
+export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
 
 
@@ -1236,6 +1251,13 @@ export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel,
 
 
 /**
+ * Reference to a field of type 'Decimal[]'
+ */
+export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
+    
+
+
+/**
  * Reference to a field of type 'UnidadeIngrediente'
  */
 export type EnumUnidadeIngredienteFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UnidadeIngrediente'>
@@ -1243,9 +1265,23 @@ export type EnumUnidadeIngredienteFieldRefInput<$PrismaModel> = FieldRefInputTyp
 
 
 /**
+ * Reference to a field of type 'UnidadeIngrediente[]'
+ */
+export type ListEnumUnidadeIngredienteFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UnidadeIngrediente[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+/**
+ * Reference to a field of type 'Float[]'
+ */
+export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
 
 /**

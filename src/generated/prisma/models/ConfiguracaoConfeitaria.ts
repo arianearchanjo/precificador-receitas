@@ -206,7 +206,6 @@ export type ConfiguracaoConfeitariaOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   nome?: Prisma.SortOrder
   telefone?: Prisma.SortOrderInput | Prisma.SortOrder
-  _relevance?: Prisma.ConfiguracaoConfeitariaOrderByRelevanceInput
 }
 
 export type ConfiguracaoConfeitariaWhereUniqueInput = Prisma.AtLeast<{
@@ -280,12 +279,6 @@ export type ConfiguracaoConfeitariaUncheckedUpdateManyInput = {
   telefone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
-export type ConfiguracaoConfeitariaOrderByRelevanceInput = {
-  fields: Prisma.ConfiguracaoConfeitariaOrderByRelevanceFieldEnum | Prisma.ConfiguracaoConfeitariaOrderByRelevanceFieldEnum[]
-  sort: Prisma.SortOrder
-  search: string
-}
-
 export type ConfiguracaoConfeitariaCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   nome?: Prisma.SortOrder
@@ -328,7 +321,17 @@ export type ConfiguracaoConfeitariaSelect<ExtArgs extends runtime.Types.Extensio
   telefone?: boolean
 }, ExtArgs["result"]["configuracaoConfeitaria"]>
 
+export type ConfiguracaoConfeitariaSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+  id?: boolean
+  nome?: boolean
+  telefone?: boolean
+}, ExtArgs["result"]["configuracaoConfeitaria"]>
 
+export type ConfiguracaoConfeitariaSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+  id?: boolean
+  nome?: boolean
+  telefone?: boolean
+}, ExtArgs["result"]["configuracaoConfeitaria"]>
 
 export type ConfiguracaoConfeitariaSelectScalar = {
   id?: boolean
@@ -463,6 +466,30 @@ export interface ConfiguracaoConfeitariaDelegate<ExtArgs extends runtime.Types.E
   createMany<T extends ConfiguracaoConfeitariaCreateManyArgs>(args?: Prisma.SelectSubset<T, ConfiguracaoConfeitariaCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
+   * Create many ConfiguracaoConfeitarias and returns the data saved in the database.
+   * @param {ConfiguracaoConfeitariaCreateManyAndReturnArgs} args - Arguments to create many ConfiguracaoConfeitarias.
+   * @example
+   * // Create many ConfiguracaoConfeitarias
+   * const configuracaoConfeitaria = await prisma.configuracaoConfeitaria.createManyAndReturn({
+   *   data: [
+   *     // ... provide data here
+   *   ]
+   * })
+   * 
+   * // Create many ConfiguracaoConfeitarias and only return the `id`
+   * const configuracaoConfeitariaWithIdOnly = await prisma.configuracaoConfeitaria.createManyAndReturn({
+   *   select: { id: true },
+   *   data: [
+   *     // ... provide data here
+   *   ]
+   * })
+   * Note, that providing `undefined` is treated as the value not being there.
+   * Read more here: https://pris.ly/d/null-undefined
+   * 
+   */
+  createManyAndReturn<T extends ConfiguracaoConfeitariaCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, ConfiguracaoConfeitariaCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ConfiguracaoConfeitariaPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+  /**
    * Delete a ConfiguracaoConfeitaria.
    * @param {ConfiguracaoConfeitariaDeleteArgs} args - Arguments to delete one ConfiguracaoConfeitaria.
    * @example
@@ -525,6 +552,36 @@ export interface ConfiguracaoConfeitariaDelegate<ExtArgs extends runtime.Types.E
    * 
    */
   updateMany<T extends ConfiguracaoConfeitariaUpdateManyArgs>(args: Prisma.SelectSubset<T, ConfiguracaoConfeitariaUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+
+  /**
+   * Update zero or more ConfiguracaoConfeitarias and returns the data updated in the database.
+   * @param {ConfiguracaoConfeitariaUpdateManyAndReturnArgs} args - Arguments to update many ConfiguracaoConfeitarias.
+   * @example
+   * // Update many ConfiguracaoConfeitarias
+   * const configuracaoConfeitaria = await prisma.configuracaoConfeitaria.updateManyAndReturn({
+   *   where: {
+   *     // ... provide filter here
+   *   },
+   *   data: [
+   *     // ... provide data here
+   *   ]
+   * })
+   * 
+   * // Update zero or more ConfiguracaoConfeitarias and only return the `id`
+   * const configuracaoConfeitariaWithIdOnly = await prisma.configuracaoConfeitaria.updateManyAndReturn({
+   *   select: { id: true },
+   *   where: {
+   *     // ... provide filter here
+   *   },
+   *   data: [
+   *     // ... provide data here
+   *   ]
+   * })
+   * Note, that providing `undefined` is treated as the value not being there.
+   * Read more here: https://pris.ly/d/null-undefined
+   * 
+   */
+  updateManyAndReturn<T extends ConfiguracaoConfeitariaUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, ConfiguracaoConfeitariaUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ConfiguracaoConfeitariaPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
   /**
    * Create or update one ConfiguracaoConfeitaria.
@@ -931,6 +988,25 @@ export type ConfiguracaoConfeitariaCreateManyArgs<ExtArgs extends runtime.Types.
 }
 
 /**
+ * ConfiguracaoConfeitaria createManyAndReturn
+ */
+export type ConfiguracaoConfeitariaCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ConfiguracaoConfeitaria
+   */
+  select?: Prisma.ConfiguracaoConfeitariaSelectCreateManyAndReturn<ExtArgs> | null
+  /**
+   * Omit specific fields from the ConfiguracaoConfeitaria
+   */
+  omit?: Prisma.ConfiguracaoConfeitariaOmit<ExtArgs> | null
+  /**
+   * The data used to create many ConfiguracaoConfeitarias.
+   */
+  data: Prisma.ConfiguracaoConfeitariaCreateManyInput | Prisma.ConfiguracaoConfeitariaCreateManyInput[]
+  skipDuplicates?: boolean
+}
+
+/**
  * ConfiguracaoConfeitaria update
  */
 export type ConfiguracaoConfeitariaUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -956,6 +1032,32 @@ export type ConfiguracaoConfeitariaUpdateArgs<ExtArgs extends runtime.Types.Exte
  * ConfiguracaoConfeitaria updateMany
  */
 export type ConfiguracaoConfeitariaUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * The data used to update ConfiguracaoConfeitarias.
+   */
+  data: Prisma.XOR<Prisma.ConfiguracaoConfeitariaUpdateManyMutationInput, Prisma.ConfiguracaoConfeitariaUncheckedUpdateManyInput>
+  /**
+   * Filter which ConfiguracaoConfeitarias to update
+   */
+  where?: Prisma.ConfiguracaoConfeitariaWhereInput
+  /**
+   * Limit how many ConfiguracaoConfeitarias to update.
+   */
+  limit?: number
+}
+
+/**
+ * ConfiguracaoConfeitaria updateManyAndReturn
+ */
+export type ConfiguracaoConfeitariaUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ConfiguracaoConfeitaria
+   */
+  select?: Prisma.ConfiguracaoConfeitariaSelectUpdateManyAndReturn<ExtArgs> | null
+  /**
+   * Omit specific fields from the ConfiguracaoConfeitaria
+   */
+  omit?: Prisma.ConfiguracaoConfeitariaOmit<ExtArgs> | null
   /**
    * The data used to update ConfiguracaoConfeitarias.
    */

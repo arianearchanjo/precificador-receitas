@@ -194,88 +194,18 @@ export const SortOrder = {
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
+export const QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+} as const
+
+export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
 export const NullsOrder = {
   first: 'first',
   last: 'last'
 } as const
 
 export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
-
-
-export const UserOrderByRelevanceFieldEnum = {
-  id: 'id',
-  name: 'name',
-  email: 'email',
-  image: 'image'
-} as const
-
-export type UserOrderByRelevanceFieldEnum = (typeof UserOrderByRelevanceFieldEnum)[keyof typeof UserOrderByRelevanceFieldEnum]
-
-
-export const AccountOrderByRelevanceFieldEnum = {
-  id: 'id',
-  userId: 'userId',
-  accountId: 'accountId',
-  providerId: 'providerId',
-  issuer: 'issuer',
-  accessToken: 'accessToken',
-  refreshToken: 'refreshToken',
-  idToken: 'idToken',
-  scope: 'scope',
-  password: 'password'
-} as const
-
-export type AccountOrderByRelevanceFieldEnum = (typeof AccountOrderByRelevanceFieldEnum)[keyof typeof AccountOrderByRelevanceFieldEnum]
-
-
-export const SessionOrderByRelevanceFieldEnum = {
-  id: 'id',
-  userId: 'userId',
-  token: 'token',
-  ipAddress: 'ipAddress',
-  userAgent: 'userAgent'
-} as const
-
-export type SessionOrderByRelevanceFieldEnum = (typeof SessionOrderByRelevanceFieldEnum)[keyof typeof SessionOrderByRelevanceFieldEnum]
-
-
-export const VerificationOrderByRelevanceFieldEnum = {
-  id: 'id',
-  identifier: 'identifier',
-  value: 'value'
-} as const
-
-export type VerificationOrderByRelevanceFieldEnum = (typeof VerificationOrderByRelevanceFieldEnum)[keyof typeof VerificationOrderByRelevanceFieldEnum]
-
-
-export const ConfiguracaoConfeitariaOrderByRelevanceFieldEnum = {
-  nome: 'nome',
-  telefone: 'telefone'
-} as const
-
-export type ConfiguracaoConfeitariaOrderByRelevanceFieldEnum = (typeof ConfiguracaoConfeitariaOrderByRelevanceFieldEnum)[keyof typeof ConfiguracaoConfeitariaOrderByRelevanceFieldEnum]
-
-
-export const IngredienteOrderByRelevanceFieldEnum = {
-  id: 'id',
-  nome: 'nome'
-} as const
-
-export type IngredienteOrderByRelevanceFieldEnum = (typeof IngredienteOrderByRelevanceFieldEnum)[keyof typeof IngredienteOrderByRelevanceFieldEnum]
-
-
-export const ReceitaOrderByRelevanceFieldEnum = {
-  id: 'id',
-  nome: 'nome'
-} as const
-
-export type ReceitaOrderByRelevanceFieldEnum = (typeof ReceitaOrderByRelevanceFieldEnum)[keyof typeof ReceitaOrderByRelevanceFieldEnum]
-
-
-export const ReceitaIngredienteOrderByRelevanceFieldEnum = {
-  receitaId: 'receitaId',
-  ingredienteId: 'ingredienteId'
-} as const
-
-export type ReceitaIngredienteOrderByRelevanceFieldEnum = (typeof ReceitaIngredienteOrderByRelevanceFieldEnum)[keyof typeof ReceitaIngredienteOrderByRelevanceFieldEnum]
 

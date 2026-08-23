@@ -326,7 +326,6 @@ export type ReceitaOrderByWithRelationInput = {
   criadoEm?: Prisma.SortOrder
   atualizadoEm?: Prisma.SortOrder
   ingredientes?: Prisma.ReceitaIngredienteOrderByRelationAggregateInput
-  _relevance?: Prisma.ReceitaOrderByRelevanceInput
 }
 
 export type ReceitaWhereUniqueInput = Prisma.AtLeast<{
@@ -503,12 +502,6 @@ export type ReceitaUncheckedUpdateManyInput = {
   favorita?: Prisma.BoolFieldUpdateOperationsInput | boolean
   criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
-
-export type ReceitaOrderByRelevanceInput = {
-  fields: Prisma.ReceitaOrderByRelevanceFieldEnum | Prisma.ReceitaOrderByRelevanceFieldEnum[]
-  sort: Prisma.SortOrder
-  search: string
 }
 
 export type ReceitaCountOrderByAggregateInput = {
@@ -729,7 +722,37 @@ export type ReceitaSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   _count?: boolean | Prisma.ReceitaCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["receita"]>
 
+export type ReceitaSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+  id?: boolean
+  nome?: boolean
+  rendimento?: boolean
+  horasTrabalho?: boolean
+  valorHora?: boolean
+  custoEmbalagem?: boolean
+  custoGasEnergia?: boolean
+  custosAdicionais?: boolean
+  taxaCartao?: boolean
+  margemLucro?: boolean
+  favorita?: boolean
+  criadoEm?: boolean
+  atualizadoEm?: boolean
+}, ExtArgs["result"]["receita"]>
 
+export type ReceitaSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+  id?: boolean
+  nome?: boolean
+  rendimento?: boolean
+  horasTrabalho?: boolean
+  valorHora?: boolean
+  custoEmbalagem?: boolean
+  custoGasEnergia?: boolean
+  custosAdicionais?: boolean
+  taxaCartao?: boolean
+  margemLucro?: boolean
+  favorita?: boolean
+  criadoEm?: boolean
+  atualizadoEm?: boolean
+}, ExtArgs["result"]["receita"]>
 
 export type ReceitaSelectScalar = {
   id?: boolean
@@ -752,6 +775,8 @@ export type ReceitaInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs
   ingredientes?: boolean | Prisma.Receita$ingredientesArgs<ExtArgs>
   _count?: boolean | Prisma.ReceitaCountOutputTypeDefaultArgs<ExtArgs>
 }
+export type ReceitaIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
+export type ReceitaIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
 
 export type $ReceitaPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Receita"
@@ -890,6 +915,30 @@ export interface ReceitaDelegate<ExtArgs extends runtime.Types.Extensions.Intern
   createMany<T extends ReceitaCreateManyArgs>(args?: Prisma.SelectSubset<T, ReceitaCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
+   * Create many Receitas and returns the data saved in the database.
+   * @param {ReceitaCreateManyAndReturnArgs} args - Arguments to create many Receitas.
+   * @example
+   * // Create many Receitas
+   * const receita = await prisma.receita.createManyAndReturn({
+   *   data: [
+   *     // ... provide data here
+   *   ]
+   * })
+   * 
+   * // Create many Receitas and only return the `id`
+   * const receitaWithIdOnly = await prisma.receita.createManyAndReturn({
+   *   select: { id: true },
+   *   data: [
+   *     // ... provide data here
+   *   ]
+   * })
+   * Note, that providing `undefined` is treated as the value not being there.
+   * Read more here: https://pris.ly/d/null-undefined
+   * 
+   */
+  createManyAndReturn<T extends ReceitaCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, ReceitaCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReceitaPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+  /**
    * Delete a Receita.
    * @param {ReceitaDeleteArgs} args - Arguments to delete one Receita.
    * @example
@@ -952,6 +1001,36 @@ export interface ReceitaDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * 
    */
   updateMany<T extends ReceitaUpdateManyArgs>(args: Prisma.SelectSubset<T, ReceitaUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+
+  /**
+   * Update zero or more Receitas and returns the data updated in the database.
+   * @param {ReceitaUpdateManyAndReturnArgs} args - Arguments to update many Receitas.
+   * @example
+   * // Update many Receitas
+   * const receita = await prisma.receita.updateManyAndReturn({
+   *   where: {
+   *     // ... provide filter here
+   *   },
+   *   data: [
+   *     // ... provide data here
+   *   ]
+   * })
+   * 
+   * // Update zero or more Receitas and only return the `id`
+   * const receitaWithIdOnly = await prisma.receita.updateManyAndReturn({
+   *   select: { id: true },
+   *   where: {
+   *     // ... provide filter here
+   *   },
+   *   data: [
+   *     // ... provide data here
+   *   ]
+   * })
+   * Note, that providing `undefined` is treated as the value not being there.
+   * Read more here: https://pris.ly/d/null-undefined
+   * 
+   */
+  updateManyAndReturn<T extends ReceitaUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, ReceitaUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReceitaPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
   /**
    * Create or update one Receita.
@@ -1393,6 +1472,25 @@ export type ReceitaCreateManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
 }
 
 /**
+ * Receita createManyAndReturn
+ */
+export type ReceitaCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Receita
+   */
+  select?: Prisma.ReceitaSelectCreateManyAndReturn<ExtArgs> | null
+  /**
+   * Omit specific fields from the Receita
+   */
+  omit?: Prisma.ReceitaOmit<ExtArgs> | null
+  /**
+   * The data used to create many Receitas.
+   */
+  data: Prisma.ReceitaCreateManyInput | Prisma.ReceitaCreateManyInput[]
+  skipDuplicates?: boolean
+}
+
+/**
  * Receita update
  */
 export type ReceitaUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1422,6 +1520,32 @@ export type ReceitaUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalA
  * Receita updateMany
  */
 export type ReceitaUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * The data used to update Receitas.
+   */
+  data: Prisma.XOR<Prisma.ReceitaUpdateManyMutationInput, Prisma.ReceitaUncheckedUpdateManyInput>
+  /**
+   * Filter which Receitas to update
+   */
+  where?: Prisma.ReceitaWhereInput
+  /**
+   * Limit how many Receitas to update.
+   */
+  limit?: number
+}
+
+/**
+ * Receita updateManyAndReturn
+ */
+export type ReceitaUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Receita
+   */
+  select?: Prisma.ReceitaSelectUpdateManyAndReturn<ExtArgs> | null
+  /**
+   * Omit specific fields from the Receita
+   */
+  omit?: Prisma.ReceitaOmit<ExtArgs> | null
   /**
    * The data used to update Receitas.
    */
