@@ -1,4 +1,5 @@
 import { EditorReceita } from "@/components/editor-receita";
+import { CabecalhoPagina } from "@/components/ui";
 import { db } from "@/lib/db";
 import type { IngredienteDTO } from "@/lib/format";
 import { requireSession } from "@/lib/session";
@@ -22,13 +23,12 @@ export default async function NovaReceitaPage() {
 
   return (
     <div className="flex flex-col gap-6">
-      <div>
-        <p className="label">Receitas</p>
-        <h1 className="font-display text-3xl font-semibold text-brand-marrom">Nova receita</h1>
-        <p className="mt-1 text-sm text-ink-muted">
-          O preço sugerido é recalculado em tempo real enquanto você preenche.
-        </p>
-      </div>
+      <CabecalhoPagina
+        secao="Receitas"
+        titulo="Nova receita"
+        descricao="O preço sugerido é recalculado em tempo real enquanto você preenche."
+        voltar={{ href: "/receitas", rotulo: "Receitas" }}
+      />
       <EditorReceita ingredientes={dtosIngrediente} receita={null} />
     </div>
   );

@@ -6,11 +6,14 @@
   --color-brand-marrom: #271e05;
   --color-brand-cream: #f6f6ed;
   --color-brand-gold: #c9a227;
+  /* Dourado escurecido para uso em texto — contraste AA sobre fundos claros */
+  --color-brand-gold-deep: #8a6d10;
 
   /* Neutros de apoio (quentes, derivados do marrom) */
   --color-ink: #271e05;
-  --color-ink-muted: #77715c;
+  --color-ink-muted: #5d5745;
   --color-line: #e2ded0;
+  --color-line-strong: #cfc9b6;
   --color-surface: #fdfdf9;
 
   /* Tipografia */
@@ -20,15 +23,74 @@
   --font-mono: var(--font-plex-mono), ui-monospace, monospace;
 }
 
+@theme {
+  --animate-fade-in: fade-in 150ms ease-out;
+  --animate-pop-in: pop-in 180ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* O dialog é centralizado pela propriedade `translate` (usada pelas classes
+     -translate-x/y-1/2 do Tailwind v4). Animar apenas `scale` evita somar
+     dois deslocamentos — antes o dialog entrava dobrado de posição. */
+  @keyframes pop-in {
+    from {
+      opacity: 0;
+      scale: 0.96;
+    }
+    to {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-pop-in {
+    animation: none;
+  }
+}
+
 body {
   background: var(--color-brand-cream);
   color: var(--color-ink);
 }
 
+/* Garante que o ponteiro/cursor nunca suma sobre campos digitáveis
+   (alguns resets e filtros de blur fazem o cursor padrão desaparecer). */
+@layer base {
+  input,
+  textarea {
+    cursor: text;
+  }
+
+  select,
+  option {
+    cursor: pointer;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    cursor: pointer;
+  }
+}
+
+::selection {
+  background-color: rgb(112 132 101 / 0.3);
+}
+
 /* Rótulos de formulário e tags — caixa alta com letter-spacing largo */
 .label {
   font-size: 0.75rem;
-  letter-spacing: 0.12em;
+  font-weight: 500;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--color-ink-muted);
 }

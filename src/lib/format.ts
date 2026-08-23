@@ -2,6 +2,14 @@ export function formatarMoeda(valor: number): string {
   return new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(valor);
 }
 
+/** Normaliza texto para busca: minúsculo e sem acentos ("Ação" → "acao"). */
+export function normalizarParaBusca(valor: string): string {
+  return valor
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "");
+}
+
 export function formatarNumero(valor: number, casas = 2): string {
   return new Intl.NumberFormat("pt-BR", { maximumFractionDigits: casas }).format(valor);
 }

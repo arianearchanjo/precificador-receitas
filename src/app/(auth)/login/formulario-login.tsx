@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { Button, Field, TextInput } from "@/components/ui";
+import { Button, Field, IconAlerta, Spinner, TextInput } from "@/components/ui";
 import { authClient } from "@/lib/auth-client";
 
 export function FormularioLogin() {
@@ -27,7 +27,7 @@ export function FormularioLogin() {
   }
 
   return (
-    <div className="w-full max-w-sm rounded-xl border border-line bg-surface p-6 shadow-sm">
+    <div className="w-full max-w-sm rounded-2xl border border-line bg-surface p-7 shadow-md shadow-brand-marrom/5">
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <Field label="E-mail">
           <TextInput
@@ -36,6 +36,7 @@ export function FormularioLogin() {
             onChange={(e) => setEmail(e.target.value)}
             required
             autoComplete="email"
+            placeholder="voce@email.com"
           />
         </Field>
         <Field label="Senha">
@@ -45,10 +46,20 @@ export function FormularioLogin() {
             onChange={(e) => setPassword(e.target.value)}
             required
             autoComplete="current-password"
+            placeholder="••••••••"
           />
         </Field>
-        {error ? <p className="text-sm text-red-700">{error}</p> : null}
-        <Button type="submit" disabled={loading}>
+        {error ? (
+          <p
+            role="alert"
+            className="flex items-start gap-1.5 rounded-lg bg-red-50 px-3 py-2.5 text-sm font-medium text-red-700"
+          >
+            <IconAlerta className="mt-0.5 h-4 w-4 shrink-0" />
+            {error}
+          </p>
+        ) : null}
+        <Button type="submit" disabled={loading} className="mt-1 w-full py-3">
+          {loading ? <Spinner /> : null}
           {loading ? "Entrando..." : "Entrar"}
         </Button>
       </form>

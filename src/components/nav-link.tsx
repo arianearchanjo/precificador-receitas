@@ -11,10 +11,10 @@ export function NavLink({ href, children }: { href: string; children: React.Reac
     <Link
       href={href}
       aria-current={ativo ? "page" : undefined}
-      className={`label rounded-lg px-2.5 py-2 transition-colors sm:px-3.5 ${
+      className={`rounded-full px-2.5 py-1.5 text-[13px] font-medium tracking-wide transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-cream sm:px-3.5 sm:text-sm ${
         ativo
-          ? "bg-white/15 text-white"
-          : "text-brand-cream/80 hover:bg-white/10 hover:text-white"
+          ? "bg-brand-cream text-brand-marrom shadow-sm"
+          : "text-brand-cream hover:bg-white/15 hover:text-white"
       }`}
     >
       {children}

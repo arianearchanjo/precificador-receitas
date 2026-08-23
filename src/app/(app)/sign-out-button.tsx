@@ -21,7 +21,7 @@ export function SignOutButton() {
       type="button"
       onClick={handleSignOut}
       disabled={loading}
-      className="label rounded-md px-3 py-2 text-brand-cream/90 transition-colors hover:bg-white/10 disabled:opacity-50"
+      className="cursor-pointer rounded-full border border-brand-cream/40 px-2.5 py-1.5 text-[13px] font-medium text-brand-cream transition-colors hover:border-brand-cream hover:bg-white/15 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-cream disabled:opacity-50 sm:px-3.5 sm:text-sm"
     >
       {loading ? "Saindo..." : "Sair"}
     </button>

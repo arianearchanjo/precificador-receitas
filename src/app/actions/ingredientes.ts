@@ -3,9 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { db } from "@/lib/db";
 import { getSession } from "@/lib/session";
-
-export const UNIDADES = ["g", "ml", "un", "kg", "l"] as const;
-export type Unidade = (typeof UNIDADES)[number];
+import { UNIDADES, type Unidade } from "@/lib/unidades";
 
 export interface DadosIngrediente {
   nome: string;
